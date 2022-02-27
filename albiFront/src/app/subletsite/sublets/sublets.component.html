@@ -1,0 +1,12 @@
+<h2>Albérletek listája</h2>
+<div *ngFor="let sublet of sublets; index as indexOfelement" class="card">
+  <span class="cardtitle">{{sublet.address}}</span> <br />
+  <img src="assets/room.jpg" style="width:300px;"><br />
+  <strong>ID:</strong> {{sublet.id}} <br />
+  <strong>SellerID:</strong> {{sublet.sellerId}} <br />
+  <strong>Alapterület: </strong> {{sublet.size}} m²<br />
+  <strong>Kert: </strong> {{sublet.garden}} <br />
+  <strong>Szobák száma: </strong> {{sublet.rooms}} <br />
+  <strong>Irányár: </strong> {{sublet.price}} Ft/hó<br />
+  {{sublet.desc}}
+</div>
