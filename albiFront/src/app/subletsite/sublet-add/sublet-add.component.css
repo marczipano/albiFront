@@ -1,0 +1,38 @@
+div.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 3px grey;
+  width: 500px;
+  padding: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+span.cardtitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+img {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+h2 {
+  text-align: center;
+}
+
+label{
+    display: inline-block;
+    width: 150px;
+    margin-bottom: 10px;   
+}
+
+.kuldes{
+    margin: auto;
+    margin-top: 10px;
+    padding: 3px;
+    display: block;
+}

@@ -1,1 +1,30 @@
-<p>sublet-add works!</p>
+<h2>Új hirdetés feladása</h2>
+<div class="card">
+  <form #addSublet="ngForm" (ngSubmit)="onSubmit(addSublet.value)">
+  <label for="sellerId">Eladó azonosító: </label>
+  <input type="number" name="sellerId" id="sellerId" ngModel/>
+  <br />
+  <label for="address">Cím: </label>
+  <input type="text" name="address" id="address" ngModel/>
+  <br />
+  <label for="size">Alapterület: </label>
+  <input type="number" name="size" id="size" ngModel/>
+  <br />
+  <label for="garden">Kert: </label>
+  <select name="garden" id="garden" ngModel>
+    <option value="true">Van</option>
+    <option value="false">Nincs</option>
+  </select>
+  <br />
+  <label for="rooms">Szobák száma: </label>
+  <input type="number" name="rooms" id="rooms" ngModel/>
+  <br />
+  <label for="desc">Leírás: </label>
+  <textarea name="desc" id="desc" ngModel></textarea>
+  <br />
+  <label for="price">Irányár: </label>
+  <input type="number" name="price" id="price" ngModel/>
+  <br />
+  <input type="submit" value="Küldés" class="kuldes"/>
+  </form>
+</div>
