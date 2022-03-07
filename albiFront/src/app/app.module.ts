@@ -8,6 +8,14 @@ import { SubletsComponent } from './subletsite/sublets/sublets.component';
 import { SellersComponent } from './subletsite/sellers/sellers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SubletAddComponent } from './subletsite/sublet-add/sublet-add.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
+import { BoardUserComponent } from './board-user/board-user.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -15,7 +23,14 @@ import { SubletAddComponent } from './subletsite/sublet-add/sublet-add.component
     SubletsiteComponent,
     SubletsComponent,
     SellersComponent,
-    SubletAddComponent
+    SubletAddComponent,
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    ProfileComponent,
+    BoardAdminComponent,
+    BoardModeratorComponent,
+    BoardUserComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +38,7 @@ import { SubletAddComponent } from './subletsite/sublet-add/sublet-add.component
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

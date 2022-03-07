@@ -1,0 +1,90 @@
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img"
+         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+         class="profile-img-card" />
+    <form *ngIf="!isSuccessful"
+          name="form"
+          (ngSubmit)="f.form.valid && onSubmit()"
+          #f="ngForm"
+          novalidate>
+      <div class="form-group">
+        <label for="username">Felhasználónév</label>
+        <input type="text"
+               class="form-control"
+               name="username"
+               [(ngModel)]="form.username"
+               required
+               minlength="5"
+               maxlength="20"
+               #username="ngModel" />
+        <div class="alert-danger" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors.required">Adj meg egy felhasználónevet!</div>
+          <div *ngIf="username.errors.minlength">
+            A felhasználónévnek legalább 5 karakterből kell állnia!
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            A felhasználónévnek legfeljebb 20 karakterből kell állnia!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email"
+               class="form-control"
+               name="email"
+               [(ngModel)]="form.email"
+               required
+               email
+               #email="ngModel" />
+        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors.required">Adj meg egy e-mail címet!</div>
+          <div *ngIf="email.errors.email">
+            Adj meg egy érvényes e-mail címet!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="tel">Telefonszám</label>
+        <input type="tel"
+               class="form-control"
+               name="tel"
+               [(ngModel)]="form.tel"
+               required
+               #tel="ngModel" />
+        <div class="alert-danger" *ngIf="tel.errors && f.submitted">
+          <div *ngIf="tel.errors.required">Adj meg egy telefonszámot!</div>
+          <div *ngIf="tel.errors.tel">
+            Adj meg egy érvényes telefonszámot!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Jelszó</label>
+        <input type="password"
+               class="form-control"
+               name="password"
+               [(ngModel)]="form.password"
+               required
+               minlength="6"
+               #password="ngModel" />
+        <div class="alert-danger" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors.required">Adj meg egy jelszót!</div>
+          <div *ngIf="password.errors.minlength">
+            A jelszónak legalább 6 karakterből kell állnia!
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Regisztráció</button>
+      </div>
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</div>
+
