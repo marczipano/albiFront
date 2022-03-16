@@ -22,6 +22,7 @@ export class AuthService {
     return this.http.post(`${this.apiServerUrl}/auth/signup`, {
       username,
       email,
+      tel,
       password
     }, httpOptions);
   }

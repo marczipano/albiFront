@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\albiFront",
+    "\\albiFront\\src",
+    "\\albiFront\\src\\app",
+    "\\albiFront\\src\\app\\register",
+    "\\albiFront\\src\\app\\subletsite",
+    "\\albiFront\\src\\app\\subletsite\\sublet-add",
+    "\\albiFront\\src\\app\\subletsite\\sublets"
+  ],
+  "SelectedNode": "\\albiFront\\src\\app\\subletsite\\sublets\\sublets.component.html",
+  "PreviewInSolutionExplorer": false
+}

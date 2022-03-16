@@ -1,8 +1,6 @@
+<h2>Bejelentkezés</h2>
 <div class="col-md-12">
-  <div class="card card-container">
-    <img id="profile-img"
-         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-         class="profile-img-card" />
+  <div class="flex-card">
     <form *ngIf="!isLoggedIn"
           name="form"
           (ngSubmit)="f.form.valid && onSubmit()"
@@ -41,7 +39,7 @@
         </div>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">
+        <br /><button class="btn btn-primary btn-block">
           Bejelentkezés
         </button>
       </div>

@@ -1,0 +1,14 @@
+div.flex-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 3px grey;
+  width: 500px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+}
