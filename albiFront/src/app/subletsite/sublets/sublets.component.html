@@ -1,8 +1,26 @@
 <h2>Elérhető albérletek listája</h2>
+<br />
+<button (click)='getSubletInfosOrdered("priceAsc")'>Ár szerint növekvő</button>
+<button (click)='getSubletInfosOrdered("priceDesc")'>Ár szerint csökkenő</button>
+<button (click)='getSubletInfosOrdered("sizeAsc")'>Méret szerint növekvő</button>
+<button (click)='getSubletInfosOrdered("sizeDesc")'>Méret szerint csökkenő</button>
+<button (click)='getSubletInfosOrdered("onlyGarden")'>Kertes ingatlanok</button>
+<button (click)='getSubletInfosOrdered("noGarden")'>Kert nélküli ingatlanok</button>
+<button (click)='getSubletInfosOrdered("normal")'>Rendezés törlése</button>
+<br /><input [(ngModel)] ='findAddress'/>
+<button (click)='getSubletInfosByAddress()'>Keresés cím alapján</button>
+
+<br />
 <div class="flex-container">
   <div *ngFor="let sublet of sublets; index as indexOfelement" class="flex-card">
     <div class="card-title">{{sublet.address}}</div>
-    <div class="card-image"><img src="assets/room.jpg" style="width:300px;"></div>
+
+    <div class="card-image">
+      <img *ngIf="sublet.images.length == 0" src="assets/room.jpg" style="width:300px;">
+      <div *ngIf="sublet.images.length > 0">
+        <img *ngFor="let url of sublet.images" src="{{url}}" style="width:300px;">
+      </div>
+    </div>
 
     <!--<strong>ID:</strong> {{sublet.id}}-->
     <!--<strong>SellerID:</strong> {{sublet.sellerId}}-->
@@ -34,7 +52,14 @@
     </div>
 
     <div class="card-details">
-      {{sublet.desc}}
+      {{sublet.descript}}
+
+    </div>
+    <div class="phoneBtn contactBtn">
+      {{sublet.phone}}     
+    </div>
+    <div class="emailBtn contactBtn">
+      {{sublet.email}}
     </div>
   </div>
 </div>

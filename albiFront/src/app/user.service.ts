@@ -9,15 +9,15 @@ export class UserService {
 private apiServerUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient) { }
   getPublicContent(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/test/all`, { responseType: 'text' });
+    return this.http.get(`${this.apiServerUrl}/all`, { responseType: 'text' });
   }
   getUserBoard(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/test/user`, { responseType: 'text' });
+    return this.http.get(`${this.apiServerUrl}/user`, { responseType: 'text' });
   }
   getModeratorBoard(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/test/mod`, { responseType: 'text' });
+    return this.http.get(`${this.apiServerUrl}/mod`, { responseType: 'text' });
   }
   getAdminBoard(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/test/admin`, { responseType: 'text' });
+    return this.http.get(`${this.apiServerUrl}/admin`, { responseType: 'text' });
   }
 }

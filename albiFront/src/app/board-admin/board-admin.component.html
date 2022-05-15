@@ -2,4 +2,23 @@
   <header class="jumbotron">
     <p>{{ content }}</p>
   </header>
+
+  <table>
+    <tr>
+      <th>ID</th><th>Cím</th><th>Kép</th><th>Törlés</th>
+    </tr>
+    <tr *ngFor="let sublet of sublets">
+      <td>{{sublet.id}}</td><td>{{sublet.address}}</td><td>{{sublet.images.length}}</td>
+      <td>
+      <div class="contactBtn deleteBtn" id="secondBtn">
+          <a href="/delete/?id={{sublet.id}}">Törlés</a>
+      </div>
+      </td>
+    </tr>
+
+  </table>
+
+  <ng-template #loggedOut>
+    Az oldal megjelenítéséhez jeletkezz be!.
+  </ng-template>
 </div>

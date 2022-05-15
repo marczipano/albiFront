@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Sublet } from '../../sublet';
+import { SubletInfo } from '../../subletinfo';
 import { SubletService } from '../../sublet.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { NgModule } from '@angular/core'; 
 import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
@@ -11,19 +12,44 @@ import { Container } from '@angular/compiler/src/i18n/i18n_ast';
   styleUrls: ['./sublets.component.css']
 })
 export class SubletsComponent implements OnInit {
-  public sublets: Sublet[];
+  public sublets: SubletInfo[];
+  public findAddress: string;
 
   constructor(private subletService: SubletService) {
-
   }
 
   ngOnInit(): void {
-    this.getSublets(); 
+    this.getSubletInfos(); 
   }
 
-  public getSublets(): void{
-	  this.subletService.getSublets().subscribe(
-	  (response: Sublet[]) => {
+  public getSubletInfosByAddress(): void{
+	  this.subletService.findSubletInfoByAddress(this.findAddress).subscribe(
+	  (response: SubletInfo[]) => {
+		  this.sublets = response;
+	  },
+	  (error: HttpErrorResponse) => {
+		  alert(error.message);
+	  }
+	 );
+  }
+
+  public getSubletInfosOrdered(command: string): void{
+    this.findAddress = "";
+	  this.subletService.getSubletInfosOrdered(command).subscribe(
+	  (response: SubletInfo[]) => {
+		  this.sublets = response;
+	  },
+	  (error: HttpErrorResponse) => {
+		  alert(error.message);
+	  }
+	 );
+  }
+
+
+
+  public getSubletInfos(): void{
+	  this.subletService.getSubletInfos().subscribe(
+	  (response: SubletInfo[]) => {
 		  this.sublets = response;
 	  },
 	  (error: HttpErrorResponse) => {

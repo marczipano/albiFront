@@ -1,8 +1,8 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
   <header class="jumbotron">
-    <h3>
-      <strong>{{ currentUser.username }}</strong> Fiók
-    </h3>
+    <h2>
+      <strong>{{ currentUser.username }}</strong> - profil 
+    </h2>
   </header>
   <p>
     <strong>Token:</strong>
@@ -19,7 +19,58 @@
       {{ role }}
     </li>
   </ul>
+
+
+  <strong>Feladott hirdetések</strong>
+  <div class="flex-container">
+    <div *ngFor="let sublet of sublets" class="flex-card">
+      <div class="card-title">{{sublet.address}}</div>
+      <div class="card-image"><img src="assets/room.jpg" style="width:300px;"></div>
+      <div class="card-info" style="width: 20%">
+        <img src="assets/size.png" /><br />
+        {{sublet.size}} m²
+      </div>
+
+      <div class="card-info" style="width: 20%">
+        <img src="assets/bed.png" /><br />
+        {{sublet.rooms}} db
+      </div>
+
+      <div class="card-info" style="width: 20%">
+
+        <ng-container *ngIf="sublet.garden">
+          <img src="assets/garden.png" /><br />
+          kertes
+        </ng-container>
+        <ng-container *ngIf="!sublet.garden">
+          <img src="assets/no-garden.png" /><br />
+          nem kertes
+        </ng-container>
+      </div>
+
+      <div class="card-info" style="width: 40%">
+        <img src="assets/coin.png" /><br />
+        {{sublet.price}} Ft/hó
+      </div>
+
+      <div class="card-details">
+        {{sublet.desc}}
+
+      </div>
+
+
+
+      <div class="contactBtn deleteBtn" id="secondBtn">
+        <a href="/delete/?id={{sublet.id}}">Törlés</a>
+      </div>
+
+    </div>
+  </div>
 </div>
+
+
 <ng-template #loggedOut>
   Az oldal megjelenítéséhez jeletkezz be!.
 </ng-template>
+
+

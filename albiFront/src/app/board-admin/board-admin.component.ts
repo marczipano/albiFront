@@ -1,21 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { SubletService } from 'src/app/sublet.service';
+import { SubletInfo } from 'src/app/subletinfo';
+import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-board-admin',
   templateUrl: './board-admin.component.html',
   styleUrls: ['./board-admin.component.css']
 })
 export class BoardAdminComponent implements OnInit {
+
+  public sublets: SubletInfo[];
+
   content?: string;
-  constructor(private userService: UserService) { }
+  constructor(private subletService: SubletService) { }
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    this.subletService.getSubletInfos().subscribe(
+	  (response: SubletInfo[]) => {
+		  this.sublets = response;
+	  },
+	  (error: HttpErrorResponse) => {
+		  alert(error.message);
+	  }
+	 );
   }
 }

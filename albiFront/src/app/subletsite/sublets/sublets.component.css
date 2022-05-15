@@ -45,7 +45,27 @@ div.card-info > img {
     padding: 10px;
 }
 
+div.phoneBtn{
+    background-color: maroon;
+    width: 150px;
+}
 
+div.emailBtn {
+  background-color: maroon;
+  width: 250px;
+}
+
+div.contactBtn {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-top: 5px;
+    cursor: pointer;
+}
 
 
 h2 {
