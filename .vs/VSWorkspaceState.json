@@ -4,13 +4,12 @@
     "\\albiFront",
     "\\albiFront\\src",
     "\\albiFront\\src\\app",
-    "\\albiFront\\src\\app\\board-user",
     "\\albiFront\\src\\app\\profile",
-    "\\albiFront\\src\\app\\register",
     "\\albiFront\\src\\app\\subletsite",
     "\\albiFront\\src\\app\\subletsite\\sublet-add",
+    "\\albiFront\\src\\app\\subletsite\\sublet-delete",
     "\\albiFront\\src\\app\\subletsite\\sublets"
   ],
-  "SelectedNode": "\\albiFront\\src\\app\\profile\\profile.component.html",
+  "SelectedNode": "\\albiFront\\src\\app\\profile\\profile.component.css",
   "PreviewInSolutionExplorer": false
 }

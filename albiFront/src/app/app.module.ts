@@ -17,6 +17,15 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardUserComponent } from './board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { SubletDeleteComponent } from './subletsite/sublet-delete/sublet-delete.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { MatCarouselModule } from '@ngmodule/material-carousel';
 
 @NgModule({
   declarations: [
@@ -38,7 +47,16 @@ import { SubletDeleteComponent } from './subletsite/sublet-delete/sublet-delete.
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    MatCardModule,
+    MatChipsModule,
+    MatGridListModule,
+    MatCarouselModule.forRoot()
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

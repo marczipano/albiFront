@@ -1,38 +1,28 @@
-<div id="app">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a href="#" class="navbar-brand"> ☗ Albi - az albérletportál</a>
-    <ul class="navbar-nav mr-auto" routerLinkActive="active">
-      <li class="nav-item">
-        <a href="/home" class="nav-link" routerLink="home">Kezdőlap </a>
-      </li>
-      <li class="nav-item" *ngIf="showAdminBoard">
-        <a href="/admin" class="nav-link" routerLink="admin">Admin</a>
-      </li>
-      <li class="nav-item" *ngIf="showModeratorBoard">
-        <a href="/mod" class="nav-link" routerLink="mod">Moderátor</a>
-      </li>
-      <li class="nav-item">
-        <a href="/add" class="nav-link"  *ngIf="isLoggedIn" routerLink="add">Hirdetésfeladás</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
-      <li class="nav-item">
-        <a href="/register" class="nav-link" routerLink="register">Regisztráció</a>
-      </li>
-      <li class="nav-item">
-        <a href="/login" class="nav-link" routerLink="login">Bejelentkezés</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-      <li class="nav-item">
-        <a href="/profile" class="nav-link" routerLink="profile">{{ username }}</a>
-      </li>
-      <li class="nav-item">
-        <a href class="nav-link" (click)="logout()">Kijelentkezés</a>
-      </li>
-    </ul>
-  </nav>
-  <div class="tarolo">
-    <router-outlet></router-outlet>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('register')" *ngIf="!isLoggedIn">Regisztráció</button><br *ngIf="!isLoggedIn" />
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('login')" *ngIf="!isLoggedIn">Bejelentkezés</button><br *ngIf="!isLoggedIn"/>
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('profile')" *ngIf="isLoggedIn">{{ username }}</button><br *ngIf="isLoggedIn"/>
+    <button mat-raised-button color="primary" type="button" (click)="logout()" *ngIf="isLoggedIn">Kijelentkezés</button><br *ngIf="isLoggedIn"/>
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('home')">Kezdőlap</button><br />
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('admin')" *ngIf="showAdminBoard">Admin</button><br *ngIf="showAdminBoard"/>
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('mod')" *ngIf="showModeratorBoard">Moderátor</button><br *ngIf="showModeratorBoard"/>
+    <button mat-raised-button color="primary" type="button" (click)="goToPage('add')" *ngIf="isLoggedIn">Hirdetésfeladás</button>
+
+
+
+  </mat-drawer>
+
+  <div class="top_sav" color="primary">
+    <button mat-raised-button color="primary" type="button" (click)="drawer.toggle()" class="menubtn">
+      Menü
+    </button>
+    <span class="top_cim">
+      ⌂ Albi - az albérletportál
+    </span>
   </div>
-</div>
+    <router-outlet></router-outlet>
+
+  
+
+</mat-drawer-container>

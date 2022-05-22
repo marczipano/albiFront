@@ -1,10 +1,13 @@
-div.flex-card {
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px 3px grey;
+.flex-card {
   width: 500px;
   padding: 20px;
   margin: 20px;
+}
+
+.card-info-img {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
 }
 
 div.flex-container {

@@ -64,7 +64,7 @@
     </div>
       -->
 
-  <div *ngIf="imageNames">
+  <div *ngIf="imageNames" class="imageHolder">
     <img *ngFor="let url of imageNames" src="http://localhost:8080/files/{{url}}" />
   </div>
 

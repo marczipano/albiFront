@@ -21,7 +21,6 @@ export class SubletAddComponent implements OnInit {
   sublet: Sublet;
   currentUser: any;
   selectedFiles?: FileList;
-  progressInfos: any[] = [];
   message: string[] = [];
   fileInfos?: Observable<any>;
 
@@ -30,8 +29,6 @@ export class SubletAddComponent implements OnInit {
   imageNames: string[] = [];
 
   fileName = '';
-    //uploadProgress:number;
-    //uploadSub: Subscription;
 
   constructor(private route: ActivatedRoute, 
       private router: Router, 
@@ -45,7 +42,6 @@ export class SubletAddComponent implements OnInit {
   }
 
   onSubmit(data: any){
-    //this.uploadFiles();
     this.subletService.addSublets({"id" : 0, "sellerId" : this.currentUser.id, "address" : data.address, "size" : data.size, "garden" : data.garden, "rooms" : data.rooms, "desc" : data.desc, "price": data.price})
       .subscribe(
         (response: Sublet) => {
@@ -70,14 +66,12 @@ export class SubletAddComponent implements OnInit {
    }
 
   gotoList(){
-    this.router.navigate(['/home/']);
-    
+    this.router.navigate(['/home/']);    
   }
 
 
-    selectFiles(event: any): void {
+   selectFiles(event: any): void {
     this.message = [];
-    this.progressInfos = [];
     this.selectedFiles = event.target.files;
     }
 
@@ -104,27 +98,4 @@ export class SubletAddComponent implements OnInit {
       }
   }
 
-  upload(idx: number, file: File): void {
-    this.progressInfos[idx] = { value: 0, fileName: file.name };
-    if (file) {
-      this.uploadService.upload(file).subscribe(
-        (event: any) => {
-          if (event.type === HttpEventType.UploadProgress) {
-            this.progressInfos[idx].value = Math.round(100 * event.loaded / event.total);
-            }
-          else if (event instanceof HttpResponse) {
-              const msg = 'Fájl feltöltve: ' + file.name;
-              this.message.push(msg);
-              //this.imageNames.push(event: response);
-              this.fileInfos = this.uploadService.getFiles();
-          }
-        },
-        (err: any) => {
-          this.progressInfos[idx].value = 0;
-          const msg = 'Nem sikerült feltölteni a fájlt: ' + file.name;
-          this.message.push(msg);
-          this.fileInfos = this.uploadService.getFiles();
-        });
-    }
-  }
 }

@@ -5,6 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { NgModule } from '@angular/core'; 
 import { Container } from '@angular/compiler/src/i18n/i18n_ast';
+import { MatCarousel, MatCarouselComponent } from '@ngmodule/material-carousel';
 
 @Component({
   selector: 'app-sublets',
@@ -14,6 +15,20 @@ import { Container } from '@angular/compiler/src/i18n/i18n_ast';
 export class SubletsComponent implements OnInit {
   public sublets: SubletInfo[];
   public findAddress: string;
+  public sortBy: string;
+
+  public sortOptions: option[] = [
+    { name: "Ár szerint növekvő", value: "priceAsc" },
+    { name: "Ár szerint csökkenő", value: "priceDesc" },
+    { name: "Méret szerint növekvő", value: "sizeAsc" },
+    { name: "Méret szerint csökkenő", value: "sizeDesc" },
+    { name: "Kertes ingatlanok", value: "onlyGarden" },
+    { name: "Kert nélküli ingatlanok", value: "noGarden" },
+    { name: "Legrégibb elöl", value: "normal" }  
+  ];
+
+ 
+  
 
   constructor(private subletService: SubletService) {
   }
@@ -58,4 +73,9 @@ export class SubletsComponent implements OnInit {
 	 );
   }
 
+}
+
+class option{
+    name: string;
+    value: string;
 }

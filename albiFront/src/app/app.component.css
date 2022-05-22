@@ -1,14 +1,38 @@
-
-
-div.tarolo{
-    width: 90%;
-    margin: auto;
+button{
+    margin-top: 30px;
+    width: 200px;
 }
 
-a.navbar-brand{
-    padding-left: 15px;
+  button.menubtn {
+    margin: 0;
+    width: 100px;
+    margin-left: 10px;
+    
+  }
+
+div.top_sav {
+  margin-top: 20px;
 }
 
-li.nav-item:hover{
+span.top_cim{
     font-weight: bold;
+    font-size: large;
+    padding-left: 30px;
+}
+
+.example-container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 10px;
 }
