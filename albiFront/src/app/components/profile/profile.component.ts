@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Sublet } from '../sublet';
-import { SubletService } from '../sublet.service';
-import { TokenStorageService } from '../token-storage.service';
+import { Sublet } from '@models/sublet';
+import { SubletService } from '@services/sublet.service';
+import { TokenStorageService } from '@services/token-storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-profile',

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SubletInfo } from '../../subletinfo';
-import { SubletService } from '../../sublet.service';
+import { SubletInfo } from '@models/subletinfo';
+import { SubletService } from '@services/sublet.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { NgModule } from '@angular/core'; 

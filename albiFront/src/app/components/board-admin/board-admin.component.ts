@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SubletService } from 'src/app/sublet.service';
-import { SubletInfo } from 'src/app/subletinfo';
+import { SubletService } from '@services/sublet.service';
+import { SubletInfo } from '@models/subletinfo';
 import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-board-admin',

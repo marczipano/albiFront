@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SubletsComponent } from './subletsite/sublets/sublets.component';
-import { SubletAddComponent } from './subletsite/sublet-add/sublet-add.component';
-import { SubletDeleteComponent } from './subletsite/sublet-delete/sublet-delete.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { BoardUserComponent } from './board-user/board-user.component';
-import { BoardModeratorComponent } from './board-moderator/board-moderator.component';
-import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { SubletsComponent } from '@components/sublets/sublets.component';
+import { SubletAddComponent } from '@components//sublet-add/sublet-add.component';
+import { SubletDeleteComponent } from '@components//sublet-delete/sublet-delete.component';
+import { RegisterComponent } from '@components/register/register.component';
+import { LoginComponent } from '@components/login/login.component';
+import { HomeComponent } from '@components/home/home.component';
+import { ProfileComponent } from '@components/profile/profile.component';
+import { BoardUserComponent } from '@components/board-user/board-user.component';
+import { BoardModeratorComponent } from '@components/board-moderator/board-moderator.component';
+import { BoardAdminComponent } from '@components/board-admin/board-admin.component';
 const routes: Routes = [
   //{ path: 'home', component: HomeComponent },
   { path: 'home', component: SubletsComponent },

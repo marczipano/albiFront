@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Sublet } from '../../sublet';
-import { SubletService } from '../../sublet.service';
+import { Sublet } from '@models/sublet';
+import { SubletService } from '@services/sublet.service';
 
 @Component({
   selector: 'app-sublet-delete',

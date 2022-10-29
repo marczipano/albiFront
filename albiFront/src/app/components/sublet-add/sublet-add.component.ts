@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Sublet } from '../../sublet';
-import { SubletService } from '../../sublet.service';
+import { Sublet } from '@models/sublet';
+import { SubletService } from '@services/sublet.service';
 import { FormsModule }   from '@angular/forms';
-import { TokenStorageService } from '../../token-storage.service';
-import { FileUploadService } from '../../file-upload.service';
+import { TokenStorageService } from '@services/token-storage.service';
+import { FileUploadService } from '@services/file-upload.service';
 import { Observable } from 'rxjs';
 import { HttpEventType, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Sublet } from './sublet';
-import { SubletInfo } from './subletinfo';
+import { Sublet } from '@models/sublet';
+import { SubletInfo } from '@models/subletinfo';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
