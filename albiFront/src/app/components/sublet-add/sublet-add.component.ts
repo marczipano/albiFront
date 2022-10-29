@@ -38,6 +38,9 @@ export class SubletAddComponent implements OnInit {
 
   ngOnInit(): void {
       this.currentUser = this.token.getUser();
+      if(!this.currentUser.id){
+        this.router.navigate(['/login/']);  
+      }
       this.fileInfos = this.uploadService.getFiles();
   }
 
@@ -52,7 +55,6 @@ export class SubletAddComponent implements OnInit {
 		    alert(error.message);
 	    }
       );
-
    }
 
    addImagesToSublet(): void{
@@ -61,20 +63,16 @@ export class SubletAddComponent implements OnInit {
         (result) => this.gotoList()
 
       );
-
-
    }
 
   gotoList(){
     this.router.navigate(['/home/']);    
   }
 
-
    selectFiles(event: any): void {
     this.message = [];
     this.selectedFiles = event.target.files;
     }
-
 
   uploadFiles(): void {
     this.message = [];
@@ -97,5 +95,4 @@ export class SubletAddComponent implements OnInit {
         );
       }
   }
-
 }

@@ -1,8 +1,6 @@
 <h2>Új hirdetés feladása</h2>
-<div class="card">
+<div class="card" *ngIf="currentUser.id">
   <form #addSublet="ngForm" (ngSubmit)="onSubmit(addSublet.value)">
-    <!--<label for="sellerId">Eladó azonosító: </label>
-  <input type="hidden" name="sellerId" id="sellerId" placeholder="{{currentUser.id}}" ngModel />-->
     <br />
     <label for="address">Cím: </label>
     <input type="text" name="address" id="address" required ngModel  />

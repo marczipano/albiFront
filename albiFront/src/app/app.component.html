@@ -8,9 +8,6 @@
     <button mat-raised-button color="primary" type="button" (click)="goToPage('admin')" *ngIf="showAdminBoard">Admin</button><br *ngIf="showAdminBoard"/>
     <button mat-raised-button color="primary" type="button" (click)="goToPage('mod')" *ngIf="showModeratorBoard">Moderátor</button><br *ngIf="showModeratorBoard"/>
     <button mat-raised-button color="primary" type="button" (click)="goToPage('add')" *ngIf="isLoggedIn">Hirdetésfeladás</button>
-
-
-
   </mat-drawer>
 
   <div class="top_sav" color="primary">
@@ -22,8 +19,4 @@
     </span>
   </div>
     <router-outlet></router-outlet>
-
-
-
-
 </mat-drawer-container>
