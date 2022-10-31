@@ -24,8 +24,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
     MatCardModule,
     MatChipsModule,
     MatGridListModule,
+    MatTableModule,
     MatCarouselModule.forRoot()
   ],
   providers: [authInterceptorProviders],

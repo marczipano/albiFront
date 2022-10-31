@@ -17,6 +17,8 @@ export class BoardAdminComponent implements OnInit {
 
   content?: string;
 
+  displayedColumns: string[] = ['id', 'address', 'images', 'delete', 'email'];
+
   constructor(private route: ActivatedRoute, 
       private router: Router, 
       private subletService: SubletService,

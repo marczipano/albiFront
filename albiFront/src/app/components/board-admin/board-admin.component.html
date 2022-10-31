@@ -3,22 +3,38 @@
     <p>{{ content }}</p>
   </header>
 
-  <table>
-    <tr>
-      <th>ID</th><th>Cím</th><th>Kép</th><th>Törlés</th>
-    </tr>
-    <tr *ngFor="let sublet of sublets">
-      <td>{{sublet.id}}</td><td>{{sublet.address}}</td><td>{{sublet.images.length}}</td>
-      <td>
-      <div class="contactBtn deleteBtn" id="secondBtn">
-          <a href="/delete/?id={{sublet.id}}">Törlés</a>
-      </div>
+  <table mat-table [dataSource]="sublets" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Cím </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="images">
+      <th mat-header-cell *matHeaderCellDef> Képek száma </th>
+      <td mat-cell *matCellDef="let element"> {{element.images.length}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Feltöltő </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Törlés </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="contactBtn deleteBtn" id="secondBtn">
+          <a href="/delete/?id={{element.id}}">Törlés</a>
+        </div>
       </td>
-    </tr>
+    </ng-container>
 
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-
-  <ng-template #loggedOut>
-    Az oldal megjelenítéséhez jeletkezz be!.
-  </ng-template>
 </div>
