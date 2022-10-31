@@ -11,7 +11,6 @@ import { BoardUserComponent } from '@components/board-user/board-user.component'
 import { BoardModeratorComponent } from '@components/board-moderator/board-moderator.component';
 import { BoardAdminComponent } from '@components/board-admin/board-admin.component';
 const routes: Routes = [
-  //{ path: 'home', component: HomeComponent },
   { path: 'home', component: SubletsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -20,7 +19,8 @@ const routes: Routes = [
   { path: 'delete', component: SubletDeleteComponent },
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
