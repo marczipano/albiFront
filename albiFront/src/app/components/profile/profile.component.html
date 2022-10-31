@@ -3,7 +3,7 @@
     <h2>
       <strong>
         {{ currentUser.username }}     
-        <span *ngIf="currentUser || currentUser.roles.includes('ROLE_ADMIN')" title="Adminisztrátor">  🏅 </span>
+        <span *ngIf="currentUser && currentUser.roles.includes('ROLE_ADMIN')" title="Adminisztrátor">  🏅 </span>
       </strong> - profil
     </h2>
   </header>
