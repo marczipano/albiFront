@@ -28,14 +28,11 @@ div.sortBar{
     width: 300px;
 }
 
-
 div.card-image > img {
   min-width: 100%;
   display: block;
   margin: auto;
 }
-
-
 
 h2 {
   text-align: center;

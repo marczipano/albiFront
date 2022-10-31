@@ -75,13 +75,16 @@
       </mat-form-field>
     </p>
 
-    <input type="file" multiple (change)="selectFiles($event)" />
-    <button mat-raised-button color="primary"
-            [disabled]="!selectedFiles"
-            (click)="uploadFiles()"
-            type="button">
-      Kép feltöltése
-    </button>
+    <p>
+      A képeket egyesével, vagy egyszerre is fel lehet tölteni. <br /> Támogatott képarány 16:9. Maximális fájlméret 2 MB.<br />
+      <input type="file" multiple (change)="selectFiles($event)" />
+      <button mat-raised-button color="primary"
+              [disabled]="!selectedFiles"
+              (click)="uploadFiles()"
+              type="button">
+        Kép feltöltése
+      </button>
+    </p>
 
     <div *ngIf="imageNames" class="imageHolder">
       <img *ngFor="let url of imageNames" src="http://localhost:8080/files/{{url}}" />
