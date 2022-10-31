@@ -43,3 +43,11 @@ label{
     padding: 3px;
     display: block;
 }
+
+.full-width {
+  width: 80%;
+}
+
+.short-width {
+    width: 30%;
+}

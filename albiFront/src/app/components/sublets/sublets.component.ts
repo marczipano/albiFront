@@ -27,9 +27,6 @@ export class SubletsComponent implements OnInit {
     { name: "Legrégibb elöl", value: "normal" }  
   ];
 
- 
-  
-
   constructor(private subletService: SubletService) {
   }
 
