@@ -47,6 +47,14 @@ export class SubletService {
     return this.http.post<any>(`${this.apiServerUrl}/imageUpload`, formData);	 
   }
 
+  public getUnusedCount(): Observable<any>{
+    return this.http.get<number>(`${this.apiServerUrl}/files/unused`);	 
+  }
+
+  public deleteUnusedImages(): Observable<any>{
+    return this.http.delete<any>(`${this.apiServerUrl}/files/unused`);	 
+  }
+
   public deleteSublets(subletId: number): Observable<any> {
     let a = `${this.apiServerUrl}/sublets/${subletId}`;
 	  return this.http.delete<any>(a);	

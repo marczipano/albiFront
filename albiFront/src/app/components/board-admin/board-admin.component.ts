@@ -17,6 +17,8 @@ export class BoardAdminComponent implements OnInit {
 
   content?: string;
 
+  unusedCount: number;
+
   displayedColumns: string[] = ['id', 'address', 'images', 'delete', 'email'];
 
   constructor(private route: ActivatedRoute, 
@@ -30,13 +32,23 @@ export class BoardAdminComponent implements OnInit {
         this.router.navigate(['/home/']);  
       }
 
-    this.subletService.getSubletInfos().subscribe(
-	  (response: SubletInfo[]) => {
-		  this.sublets = response;
-	  },
-	  (error: HttpErrorResponse) => {
-		  alert(error.message);
-	  }
-	 );
-  }
+      this.subletService.getSubletInfos().subscribe(
+	    (response: SubletInfo[]) => {
+		    this.sublets = response;
+	    },
+	    (error: HttpErrorResponse) => {
+		    alert(error.message);
+	    }
+	   );
+
+     this.subletService.getUnusedCount().subscribe(
+	    (response: number) => {
+		    this.unusedCount = response;
+	    }
+	   );
+    }
+
+    deleteImages(): void {
+      this.subletService.deleteUnusedImages().subscribe();
+    }
 }

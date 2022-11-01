@@ -1,8 +1,17 @@
 <div class="container">
-  <header class="jumbotron">
-    <p>{{ content }}</p>
-  </header>
 
+  <h2>Nem használt képek</h2>
+  <p>
+    Nem használt képek száma: {{ unusedCount }}
+    <br />
+    <button mat-raised-button color="primary"
+            (click)="deleteImages()"
+            [disabled]="!unusedCount"
+            type="button">
+      Tisztítás
+    </button>
+  </p>
+  <h2>Hirdetések</h2>
   <table mat-table [dataSource]="sublets" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
