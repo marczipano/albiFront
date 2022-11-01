@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Sublet } from '@models/sublet';
+import { SubletInfo } from '@models/subletinfo';
 import { SubletService } from '@services/sublet.service';
 import { TokenStorageService } from '@services/token-storage.service';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
   currentUser: any;
-  public sublets: Sublet[];
+  public sublets: SubletInfo[];
 
   constructor(private token: TokenStorageService, private subletService: SubletService, private router: Router) { }
   ngOnInit(): void {
@@ -25,8 +25,8 @@ export class ProfileComponent implements OnInit {
   }
 
   public getSublets(): void{
-	  this.subletService.getSubletsByUser(this.currentUser.id).subscribe(
-	  (response: Sublet[]) => {
+	  this.subletService.getSubletInfosByUser(this.currentUser.id).subscribe(
+	  (response: SubletInfo[]) => {
 		  this.sublets = response;
 	  },
 	  (error: HttpErrorResponse) => {

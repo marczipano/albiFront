@@ -16,12 +16,12 @@ export class SubletService {
 	  return this.http.get<Sublet[]>(`${this.apiServerUrl}/sublets`);	  
   }
 
-  public getSubletsByUser(userId: number): Observable<Sublet[]> {
-	  return this.http.get<Sublet[]>(`${this.apiServerUrl}/sublets/user/${userId}`);	  
-  }
-
   public getSubletInfos(): Observable<SubletInfo[]> {
 	  return this.http.get<SubletInfo[]>(`${this.apiServerUrl}/sublets`);	  
+  }
+
+  public getSubletInfosByUser(userId: number): Observable<SubletInfo[]> {
+	  return this.http.get<SubletInfo[]>(`${this.apiServerUrl}/sublets/user/${userId}`);	  
   }
 
   public getSubletInfosOrdered(command: string): Observable<SubletInfo[]> {
