@@ -13,6 +13,9 @@ export class SubletDeleteComponent implements OnInit {
 
   currentUser: any;
 
+  isSuccess = false;
+  errorMessage = '';
+
   constructor(private route: ActivatedRoute, 
       private router: Router,
       private token: TokenStorageService,
@@ -26,9 +29,22 @@ export class SubletDeleteComponent implements OnInit {
         else{
           this.route.queryParams.subscribe(params => {
                 let id = params['id'];
-                this.subletService.deleteSublets(id).subscribe();
-           });
-        }
+                this.subletService.deleteSublets(id).subscribe(
+                data => {
+                  this.isSuccess = true;
+                  const myTimeout = setTimeout(this.gotoHome, 2000);
+                },
+                err => {
+                  this.errorMessage = err.error.message;
+                  this.isSuccess = false;
+                }
+                );
+        });
+    }
+  }
+
+  gotoHome(): void {
+    window.location.href = '/';  
   }
 
 }

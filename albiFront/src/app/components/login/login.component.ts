@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
+        const myTimeout = setTimeout(this.gotoHome, 2000);
       },
       err => {
         this.errorMessage = err.error.message;
@@ -41,5 +41,8 @@ export class LoginComponent implements OnInit {
   }
   reloadPage(): void {
     window.location.reload();
+  }
+  gotoHome(): void {
+    window.location.href = '/';  
   }
 }

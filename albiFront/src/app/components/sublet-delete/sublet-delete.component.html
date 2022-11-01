@@ -1,1 +1,12 @@
-<p>Hirdetés törölve!</p>
+<div class="col-md-12">
+  <div class="flex-card">
+    <div class="alert alert-success" *ngIf="isSuccess">
+      Hirdetés törölve.
+    </div>
+    <div class="alert alert-danger"
+         role="alert"
+         *ngIf="errorMessage && !isSuccess">
+      Sikertelen törlés: {{ errorMessage }}
+    </div>
+  </div>
+</div>
