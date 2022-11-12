@@ -24,13 +24,11 @@ export class SubletService {
 	  return this.http.get<SubletInfo[]>(`${this.apiServerUrl}/sublets/user/${userId}`);	  
   }
 
-  public getSubletInfosOrdered(command: string): Observable<SubletInfo[]> {
-	  return this.http.get<SubletInfo[]>(`${this.apiServerUrl}/sublets?o=${command}`);	  
+
+  public getSubletInfosFilteredOrdered(order: string, address: string): Observable<SubletInfo[]> {
+	  return this.http.get<SubletInfo[]>(`${this.apiServerUrl}/sublets/find?o=${order}&a=${address}`);	  
   }
 
-  public findSubletInfoByAddress(address: string): Observable<SubletInfo[]> {
-	  return this.http.get<SubletInfo[]>(`${this.apiServerUrl}/sublets/find?a=${address}`);	  
-  }
   public getSubletsById(subletId: number): Observable<Sublet> {
 	  return this.http.get<Sublet>(`${this.apiServerUrl}/sublets/${subletId}`);	  
   }

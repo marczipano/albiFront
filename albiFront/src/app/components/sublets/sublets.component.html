@@ -3,7 +3,7 @@
 <div class="sortBar">
   <mat-form-field class="sortBarElement" appearance="fill">
     <mat-label>Rendezés szempontja</mat-label>
-    <mat-select #sortBy (selectionChange)='getSubletInfosOrdered(sortBy.value)'>
+    <mat-select #sortBy (selectionChange)='getSubletInfosFilteredOrdered(sortBy.value)'>
       <mat-option *ngFor="let option of sortOptions" [value]="option.value">
         {{option.name}}
       </mat-option>
@@ -14,7 +14,7 @@
     <mat-label>Keresés cím alapján</mat-label>
     <input matInput [(ngModel)]='findAddress'>
   </mat-form-field>
-  <button (click)='getSubletInfosByAddress()' mat-raised-button color="primary" type="button">Keresés cím alapján</button>
+  <button (click)='getSubletInfosFilteredOrdered(sortBy.value)' mat-raised-button color="primary" type="button">Keresés - rendezés</button>
 </div>
 
 <div class="flex-container">

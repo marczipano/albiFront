@@ -28,14 +28,15 @@ export class SubletsComponent implements OnInit {
   ];
 
   constructor(private subletService: SubletService) {
+    this.findAddress = "";
   }
 
   ngOnInit(): void {
     this.getSubletInfos(); 
   }
 
-  public getSubletInfosByAddress(): void{
-	  this.subletService.findSubletInfoByAddress(this.findAddress).subscribe(
+   public getSubletInfosFilteredOrdered(order: string): void{
+	  this.subletService.getSubletInfosFilteredOrdered(order, this.findAddress).subscribe(
 	  (response: SubletInfo[]) => {
 		  this.sublets = response;
 	  },
@@ -44,20 +45,6 @@ export class SubletsComponent implements OnInit {
 	  }
 	 );
   }
-
-  public getSubletInfosOrdered(command: string): void{
-    this.findAddress = "";
-	  this.subletService.getSubletInfosOrdered(command).subscribe(
-	  (response: SubletInfo[]) => {
-		  this.sublets = response;
-	  },
-	  (error: HttpErrorResponse) => {
-		  alert(error.message);
-	  }
-	 );
-  }
-
-
 
   public getSubletInfos(): void{
 	  this.subletService.getSubletInfos().subscribe(
