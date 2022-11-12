@@ -20,6 +20,9 @@
   <h2>Feladott saját hirdetések</h2>
 
   <div class="flex-container">
+    <mat-card class="flex-card" *ngIf="!sublets.length">
+      Még nem adtál fel egy hirdetést sem.
+    </mat-card>
     <mat-card *ngFor="let sublet of sublets; index as indexOfelement" class="flex-card">
       <mat-card-title>{{sublet.address}}</mat-card-title>
 

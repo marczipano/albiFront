@@ -18,6 +18,9 @@
 </div>
 
 <div class="flex-container">
+  <mat-card class="flex-card" *ngIf="!sublets.length">
+    Nincs találat.
+  </mat-card>
   <mat-card *ngFor="let sublet of sublets; index as indexOfelement" class="flex-card">
     <mat-card-title>{{sublet.address}}</mat-card-title>
 
