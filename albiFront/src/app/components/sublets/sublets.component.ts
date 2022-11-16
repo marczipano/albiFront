@@ -16,6 +16,8 @@ export class SubletsComponent implements OnInit {
   public sublets: SubletInfo[];
   public findAddress: string;
   public sortBy: string;
+  public loading: boolean;
+  public errorMsg: string;
 
   public sortOptions: option[] = [
     { name: "Ár szerint növekvő", value: "priceAsc" },
@@ -29,6 +31,7 @@ export class SubletsComponent implements OnInit {
 
   constructor(private subletService: SubletService) {
     this.findAddress = "";
+    this.loading = true;
   }
 
   ngOnInit(): void {
@@ -39,9 +42,10 @@ export class SubletsComponent implements OnInit {
 	  this.subletService.getSubletInfosFilteredOrdered(order, this.findAddress).subscribe(
 	  (response: SubletInfo[]) => {
 		  this.sublets = response;
+      this.errorMsg = '';
 	  },
 	  (error: HttpErrorResponse) => {
-		  alert(error.message);
+		  this.errorMsg = error.message;
 	  }
 	 );
   }
@@ -50,13 +54,15 @@ export class SubletsComponent implements OnInit {
 	  this.subletService.getSubletInfos().subscribe(
 	  (response: SubletInfo[]) => {
 		  this.sublets = response;
+      this.loading = false;
+      this.errorMsg = '';
 	  },
 	  (error: HttpErrorResponse) => {
-		  alert(error.message);
+      this.errorMsg = error.message;
+      this.loading = false;
 	  }
 	 );
   }
-
 }
 
 class option{

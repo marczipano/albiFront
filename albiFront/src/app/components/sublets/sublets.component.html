@@ -1,6 +1,18 @@
 <h2>Elérhető albérletek listája</h2>
 
-<div class="sortBar">
+<div class="flex-container" *ngIf="loading">
+  <div>
+    <i>Töltés...</i>
+  </div>
+</div>
+
+<div class="flex-container" *ngIf="errorMsg">
+  <mat-card class="flex-card" >
+    <strong>Hiba:</strong> {{errorMsg}}
+  </mat-card>
+</div>
+
+<div class="sortBar" *ngIf="!errorMsg && !loading">
   <mat-form-field class="sortBarElement" appearance="fill">
     <mat-label>Rendezés szempontja</mat-label>
     <mat-select #sortBy (selectionChange)='getSubletInfosFilteredOrdered(sortBy.value)'>
@@ -17,7 +29,7 @@
   <button (click)='getSubletInfosFilteredOrdered(sortBy.value)' mat-raised-button color="primary" type="button">Keresés - rendezés</button>
 </div>
 
-<div class="flex-container">
+<div class="flex-container" *ngIf="!errorMsg && !loading">
   <mat-card class="flex-card" *ngIf="!sublets.length">
     Nincs találat.
   </mat-card>
@@ -25,70 +37,70 @@
     <mat-card-title>{{sublet.address}}</mat-card-title>
 
     <mat-card-content>
-        <img *ngIf="sublet.images.length == 0" src="assets/no-image.jpg" style="width:100%;">
-        <div *ngIf="sublet.images.length > 0">
-          <mat-carousel timings="250ms ease-in"
-                        [autoplay]="true"
-                        [interval]=5000
-                        color="accent"
-                        maxWidth="auto"
-                        [proportion]=56.25
-                        [slides]="sublet.images.length"
-                        [loop]="true"
-                        [hideArrows]="false"
-                        [hideIndicators]="false"
-                        [useKeyboard]="false"
-                        [useMouseWheel]="false"
-                        [maintainAspectRatio]="true"
-                        orientation="ltr">
-            <mat-carousel-slide #matCarouselSlide
-                                *ngFor="let url of sublet.images; let i = index"
-                                [image]="url"
-                                overlayColor="#00000040"
-                                [hideOverlay]="true">
+      <img *ngIf="sublet.images.length == 0" src="assets/no-image.jpg" style="width:100%;">
+      <div *ngIf="sublet.images.length > 0">
+        <mat-carousel timings="250ms ease-in"
+                      [autoplay]="true"
+                      [interval]=5000
+                      color="accent"
+                      maxWidth="auto"
+                      [proportion]=56.25
+                      [slides]="sublet.images.length"
+                      [loop]="true"
+                      [hideArrows]="false"
+                      [hideIndicators]="false"
+                      [useKeyboard]="false"
+                      [useMouseWheel]="false"
+                      [maintainAspectRatio]="true"
+                      orientation="ltr">
+          <mat-carousel-slide #matCarouselSlide
+                              *ngFor="let url of sublet.images; let i = index"
+                              [image]="url"
+                              overlayColor="#00000040"
+                              [hideOverlay]="true">
 
-            </mat-carousel-slide>
-          </mat-carousel>
-        </div>
+          </mat-carousel-slide>
+        </mat-carousel>
+      </div>
 
-        <mat-grid-list cols="5" rowHeight="50px">
-          <mat-grid-tile colspan="1" rowspan="1">
-            <img src="assets/size.png" class="card-info-img" /><br />
-            {{sublet.size}} m²
-          </mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">
-            <img src="assets/bed.png" class="card-info-img" /><br />
-            {{sublet.rooms}} db
-          </mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">
-            <ng-container *ngIf="sublet.garden">
-              <img src="assets/garden.png" class="card-info-img" /><br />
-              kertes
-            </ng-container>
-            <ng-container *ngIf="!sublet.garden">
-              <img src="assets/no-garden.png" class="card-info-img" /><br />
-              kert nélküli
-            </ng-container>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1">
-            <img src="assets/coin.png" class="card-info-img" /><br />
-            {{sublet.price}} Ft/hó
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1">
-            <mat-chip-list>
-              <mat-chip>{{sublet.phone}}</mat-chip>
-            </mat-chip-list>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="3" rowspan="1">
-            <mat-chip-list>
-              <mat-chip>{{sublet.email}}</mat-chip>
-            </mat-chip-list>
-          </mat-grid-tile>
-        </mat-grid-list>
+      <mat-grid-list cols="5" rowHeight="50px">
+        <mat-grid-tile colspan="1" rowspan="1">
+          <img src="assets/size.png" class="card-info-img" /><br />
+          {{sublet.size}} m²
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <img src="assets/bed.png" class="card-info-img" /><br />
+          {{sublet.rooms}} db
+        </mat-grid-tile>
+        <mat-grid-tile colspan="1" rowspan="1">
+          <ng-container *ngIf="sublet.garden">
+            <img src="assets/garden.png" class="card-info-img" /><br />
+            kertes
+          </ng-container>
+          <ng-container *ngIf="!sublet.garden">
+            <img src="assets/no-garden.png" class="card-info-img" /><br />
+            kert nélküli
+          </ng-container>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+          <img src="assets/coin.png" class="card-info-img" /><br />
+          {{sublet.price}} Ft/hó
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+          <mat-chip-list>
+            <mat-chip>{{sublet.phone}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1">
+          <mat-chip-list>
+            <mat-chip>{{sublet.email}}</mat-chip>
+          </mat-chip-list>
+        </mat-grid-tile>
+      </mat-grid-list>
 
-        <p> {{sublet.descript}} </p>
+      <p> {{sublet.descript}} </p>
 
-</mat-card-content>
+    </mat-card-content>
   </mat-card>
 
 </div>
