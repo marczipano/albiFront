@@ -16,8 +16,7 @@
     <p>
       <mat-form-field appearance="standard" class="short-width">
         <mat-label>Alapterület</mat-label>
-        <input
-               matInput
+        <input matInput
                placeholder="45"
                name="size"
                id="size"
@@ -38,8 +37,7 @@
     <p>
       <mat-form-field appearance="standard" class="short-width">
         <mat-label>Szobák száma</mat-label>
-        <input
-               matInput
+        <input matInput
                placeholder="2"
                name="rooms"
                id="rooms"
@@ -52,8 +50,7 @@
     <p>
       <mat-form-field appearance="standard" class="short-width">
         <mat-label>Irányár</mat-label>
-        <input
-               matInput
+        <input matInput
                placeholder="120000"
                name="price"
                id="price"
@@ -66,8 +63,7 @@
     <p>
       <mat-form-field class="full-width" appearance="fill">
         <mat-label>Leírás</mat-label>
-        <textarea
-                  matInput
+        <textarea matInput
                   placeholder="Lényegre törő mondatok az állapotról, környezetről, lehetőségekről"
                   name="desc"
                   id="desc"
@@ -90,6 +86,7 @@
       <img *ngFor="let url of imageNames" src="http://localhost:8080/files/{{url}}" />
     </div>
 
-    <input type="submit" value="Küldés" class="kuldes" />
+    <!--<input type="submit" value="Küldés" class="kuldes" />-->
+    <button mat-raised-button color="primary">Küldés</button>
   </form>
 </div>

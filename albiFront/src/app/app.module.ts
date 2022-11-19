@@ -10,11 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { SubletAddComponent } from '@components/sublet-add/sublet-add.component';
 import { LoginComponent } from '@components/login/login.component';
 import { RegisterComponent } from '@components/register/register.component';
-import { HomeComponent } from '@components/home/home.component';
 import { ProfileComponent } from '@components/profile/profile.component';
 import { BoardAdminComponent } from '@components/board-admin/board-admin.component';
 import { BoardModeratorComponent } from '@components/board-moderator/board-moderator.component';
-import { BoardUserComponent } from '@components/board-user/board-user.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { SubletDeleteComponent } from '@components/sublet-delete/sublet-delete.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,11 +35,9 @@ import { MatTableModule } from '@angular/material/table';
     SubletAddComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent,
     SubletDeleteComponent
   ],
   imports: [
