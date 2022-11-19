@@ -23,6 +23,7 @@
     <mat-card class="flex-card" *ngIf="!sublets.length">
       Még nem adtál fel egy hirdetést sem.
     </mat-card>
+
     <mat-card *ngFor="let sublet of sublets; index as indexOfelement" class="flex-card">
       <mat-card-title>{{sublet.address}}</mat-card-title>
 
@@ -52,37 +53,42 @@
             </mat-carousel-slide>
           </mat-carousel>
         </div>
-        <mat-grid-list cols="5" rowHeight="50px">
-          <mat-grid-tile colspan="1" rowspan="1">
-            <img src="assets/size.png" class="card-info-img" /><br />
+        <div class="flex-container">
+          <div class="flex-info info-small">
+            <img src="assets/size.png" class="card-info-img" />
             {{sublet.size}} m²
-          </mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">
-            <img src="assets/bed.png" class="card-info-img" /><br />
+          </div>
+          <div class="flex-info info-small">
+            <img src="assets/bed.png" class="card-info-img" />
             {{sublet.rooms}} db
-          </mat-grid-tile>
-          <mat-grid-tile colspan="1" rowspan="1">
+          </div>
+          <div class="flex-info info-big">
             <ng-container *ngIf="sublet.garden">
-              <img src="assets/garden.png" class="card-info-img" /><br />
+              <img src="assets/garden.png" class="card-info-img" />
               kertes
             </ng-container>
             <ng-container *ngIf="!sublet.garden">
-              <img src="assets/no-garden.png" class="card-info-img" /><br />
+              <img src="assets/no-garden.png" class="card-info-img" />
               kert nélküli
             </ng-container>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1">
-            <img src="assets/coin.png" class="card-info-img" /><br />
+          </div>
+          <div class="flex-info info-big">
+            <img src="assets/coin.png" class="card-info-img" />
             {{sublet.price}} Ft/hó
-          </mat-grid-tile>
-          <mat-grid-tile colspan="5" rowspan="1">
+          </div>
+        </div>
+
+        <div class="flex-container">
+          <div class="flex-info">
             <mat-chip-list>
               <mat-chip color="warn"> <a href="/delete/?id={{sublet.id}}">Törlés</a> </mat-chip>
             </mat-chip-list>
-          </mat-grid-tile>
-        </mat-grid-list>
+          </div>
+        </div>
 
-        <p> {{sublet.descript}} </p>
+        <div>
+          <p> {{sublet.descript}} </p>
+        </div>
 
       </mat-card-content>
     </mat-card>

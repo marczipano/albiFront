@@ -4,6 +4,19 @@
   margin: 20px;
 }
 
+.flex-info {
+  height: 50px;
+  padding: 0px;
+}
+
+.info-small{
+    width: 100px;
+}
+
+.info-big{
+    width: 150px;
+}
+
 .card-info-img {
   width: 50px;
   height: 50px;
@@ -37,4 +50,9 @@ div.card-image > img {
 h2 {
   text-align: center;
   margin-top: 20px;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
 }

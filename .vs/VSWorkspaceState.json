@@ -4,12 +4,13 @@
     "\\albiFront",
     "\\albiFront\\src",
     "\\albiFront\\src\\app",
-    "\\albiFront\\src\\app\\profile",
-    "\\albiFront\\src\\app\\subletsite",
-    "\\albiFront\\src\\app\\subletsite\\sublet-add",
-    "\\albiFront\\src\\app\\subletsite\\sublet-delete",
-    "\\albiFront\\src\\app\\subletsite\\sublets"
+    "\\albiFront\\src\\app\\components",
+    "\\albiFront\\src\\app\\components\\profile",
+    "\\albiFront\\src\\app\\components\\sublet-add",
+    "\\albiFront\\src\\app\\components\\sublets",
+    "\\albiFront\\src\\app\\services",
+    "\\albiFront\\src\\app\\_helpers"
   ],
-  "SelectedNode": "\\albiFront\\src\\app\\profile\\profile.component.css",
+  "SelectedNode": "\\albiFront\\src\\app\\components\\sublets\\sublets.component.html",
   "PreviewInSolutionExplorer": false
 }
