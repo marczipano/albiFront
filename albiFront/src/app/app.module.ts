@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SubletsiteComponent } from '@components/subletsite/subletsite.component';
 import { SubletsComponent } from '@components/sublets/sublets.component';
 import { SellersComponent } from '@components/sellers/sellers.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -29,7 +28,6 @@ import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
-    SubletsiteComponent,
     SubletsComponent,
     SellersComponent,
     SubletAddComponent,
