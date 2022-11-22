@@ -15,7 +15,6 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'add', component: SubletAddComponent },
   { path: 'delete', component: SubletDeleteComponent },
-  { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home'}
