@@ -4,7 +4,6 @@ import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SubletsComponent } from '@components/sublets/sublets.component';
-import { SellersComponent } from '@components/sellers/sellers.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SubletAddComponent } from '@components/sublet-add/sublet-add.component';
 import { LoginComponent } from '@components/login/login.component';
@@ -29,7 +28,6 @@ import { MatTableModule } from '@angular/material/table';
   declarations: [
     AppComponent,
     SubletsComponent,
-    SellersComponent,
     SubletAddComponent,
     LoginComponent,
     RegisterComponent,
