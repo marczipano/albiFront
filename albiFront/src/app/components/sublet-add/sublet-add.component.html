@@ -82,11 +82,14 @@
       </button>
     </p>
 
+    <div *ngIf="errorMsg" class="alert alert-danger">
+      A kép/képek mérete meghaladja a maximális méretet!
+    </div>
+
     <div *ngIf="imageNames" class="imageHolder">
       <img *ngFor="let url of imageNames" src="http://localhost:8080/files/{{url}}" />
     </div>
 
-    <!--<input type="submit" value="Küldés" class="kuldes" />-->
     <button mat-raised-button color="primary">Küldés</button>
   </form>
 </div>

@@ -30,6 +30,8 @@ export class SubletAddComponent implements OnInit {
 
   fileName = '';
 
+  errorMsg = '';
+
   constructor(private route: ActivatedRoute, 
       private router: Router, 
       private subletService: SubletService,
@@ -52,7 +54,7 @@ export class SubletAddComponent implements OnInit {
             this.addImagesToSublet();
 	    },
 	    (error: HttpErrorResponse) => {
-		    alert(error.message);
+		    this.errorMsg = error.message;
 	    }
       );
    }
@@ -90,7 +92,7 @@ export class SubletAddComponent implements OnInit {
 		          this.imageNames.push(response);
 	          },
 	          (error: HttpErrorResponse) => {
-		          alert(error.message);
+		          this.errorMsg = error.message;
 	          }
         );
       }

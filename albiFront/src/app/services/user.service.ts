@@ -8,12 +8,6 @@ import { environment } from 'src/environments/environment';
 export class UserService {
 private apiServerUrl = environment.apiBaseUrl;
   constructor(private http: HttpClient) { }
-  getPublicContent(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/all`, { responseType: 'text' });
-  }
-  getUserBoard(): Observable<any> {
-    return this.http.get(`${this.apiServerUrl}/user`, { responseType: 'text' });
-  }
   getModeratorBoard(): Observable<any> {
     return this.http.get(`${this.apiServerUrl}/mod`, { responseType: 'text' });
   }
