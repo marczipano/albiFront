@@ -11,17 +11,6 @@ export class FileUploadService {
 
   constructor(private http: HttpClient) { }
 
-  upload(file: File): Observable<HttpEvent<any>> {
-    const formData: FormData = new FormData();
-    formData.append('file', file);
-    const req = new HttpRequest('POST', `${this.apiServerUrl}/upload`, formData, {
-      reportProgress: true,
-      responseType: 'json'
-    });
-
-    return this.http.request(req);
-  }
-
   upload2(file: File): Observable<string>{
     const formData: FormData = new FormData();
     formData.append('file', file);
