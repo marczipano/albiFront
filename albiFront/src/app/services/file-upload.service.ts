@@ -8,14 +8,13 @@ import { environment } from 'src/environments/environment';
 })
 export class FileUploadService {
   private apiServerUrl = environment.apiBaseUrl;
-  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
   upload(file: File): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
     formData.append('file', file);
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
+    const req = new HttpRequest('POST', `${this.apiServerUrl}/upload`, formData, {
       reportProgress: true,
       responseType: 'json'
     });
@@ -26,11 +25,11 @@ export class FileUploadService {
   upload2(file: File): Observable<string>{
     const formData: FormData = new FormData();
     formData.append('file', file);
-    return this.http.post(`${this.baseUrl}/upload`, formData, {responseType: 'text'});
+    return this.http.post(`${this.apiServerUrl}/upload`, formData, {responseType: 'text'});
   }
   
 
   getFiles(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/files`);
+    return this.http.get(`${this.apiServerUrl}/files`);
   }
 }
